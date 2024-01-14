@@ -1,4 +1,6 @@
-# Fassfood App
+# Fastfood App
+
+on project root directory
 
 ## Install dependencies
 
