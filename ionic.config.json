@@ -1,0 +1,7 @@
+{
+  "name": "Fast Food",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
