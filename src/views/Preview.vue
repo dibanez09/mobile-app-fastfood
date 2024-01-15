@@ -10,7 +10,7 @@
             <ion-col class="ion-no-padding">
               <ion-title style="font-size: 26px;">{{ item?.name }}</ion-title>
             </ion-col>
-            <ion-col size="2" class="ion-no-padding">              
+            <ion-col size="2" class="ion-no-padding">
               <ion-avatar class="profile">
                 <img alt="Profile" src="../theme/assets/svg/shopping-bag.svg" />
               </ion-avatar>
@@ -24,7 +24,7 @@
       <div id="container">
         <ion-card color="light" style="box-shadow: none !important;">
           <ion-card-content class="ion-text-center">
-            <img style="border-radius: 10px; height: calc(20vh);" :src="`../../public/items/${item.id}.png`">
+            <img style="border-radius: 10px; height: calc(20vh);" :src="`../../public/items/${item?.id}.png`">
           </ion-card-content>
         </ion-card>
         <h3 style="font-weight: 600; height: 40px; margin: 0;">{{ item.name }}</h3>
@@ -37,7 +37,9 @@
             </ion-col>
             <ion-col>
               <div className="ion-float-end">
-                <ion-button size="medium" color="light" @click="()=> count -= 1">-</ion-button> <span style="margin: 12px;"><b>{{ count }}</b></span><ion-button size="medium" color="light" @click="()=> count += 1">+</ion-button>
+                <ion-button size="medium" color="light" @click="() => count -= 1">-</ion-button> <span
+                  style="margin: 12px;"><b>{{ count }}</b></span><ion-button size="medium" color="light"
+                  @click="() => count += 1">+</ion-button>
               </div>
             </ion-col>
           </ion-row>
@@ -51,13 +53,16 @@
         <ion-grid style="padding-top: 24px;">
           <ion-row class="ion-no-padding">
             <ion-col class="ion-no-padding" size="4">
-              <ion-button size="medium" expand="block" :color="size === 'Regular' ? 'warning':'light'" @click="size = 'Regular'">Regular</ion-button>
+              <ion-button size="medium" expand="block" :color="size === 'Regular' ? 'warning' : 'light'"
+                @click="size = 'Regular'">Regular</ion-button>
             </ion-col>
             <ion-col class="ion-no-padding" size="4">
-              <ion-button size="medium" expand="block" :color="size === 'Large' ? 'warning':'light'" @click="size = 'Large'">Large</ion-button>
+              <ion-button size="medium" expand="block" :color="size === 'Large' ? 'warning' : 'light'"
+                @click="size = 'Large'">Large</ion-button>
             </ion-col>
             <ion-col class="ion-no-padding" size="4">
-              <ion-button size="medium" expand="block" :color="size === 'X-Large' ? 'warning':'light'" @click="size = 'X-Large'">X-Large</ion-button>
+              <ion-button size="medium" expand="block" :color="size === 'X-Large' ? 'warning' : 'light'"
+                @click="size = 'X-Large'">X-Large</ion-button>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -68,7 +73,8 @@
             <ion-grid>
               <ion-row class="ion-no-padding">
                 <ion-col class="ion-no-padding" size="3">
-                  <img style="border-radius: 10px; height: 100px; width: 100px;" :src="`../../public/addons/${addon.id}.png`">
+                  <img style="border-radius: 10px; height: 100px; width: 100px;"
+                    :src="`../../public/addons/${addon.id}.png`">
                 </ion-col>
                 <ion-col>
                   <ion-row>
@@ -84,10 +90,11 @@
                       </ion-col>
                       <ion-col size="8">
                         <div className="ion-float-end" style="display: flex; margin-left: 100px;">
-                          <ion-button size="small" color="primary">-</ion-button> <span style="margin: 1px;"><b>{{ 1 }}</b></span><ion-button size="small" color="primary">+</ion-button>
+                          <ion-button size="small" color="primary">-</ion-button> <span style="margin: 1px;"><b>{{ 1
+                          }}</b></span><ion-button size="small" color="primary">+</ion-button>
                         </div>
                       </ion-col>
-                </ion-row>
+                    </ion-row>
                   </ion-row>
                 </ion-col>
               </ion-row>
@@ -96,7 +103,7 @@
         </ion-card>
 
         <div class="float">
-          <ion-button expand="block" style="font-weight: 600;" @click="() => setOpen(true)" >Add to Bag</ion-button>
+          <ion-button expand="block" style="font-weight: 600;" @click="() => setOpen(true)">Add to Bag</ion-button>
         </div>
       </div>
     </ion-content>
@@ -112,6 +119,7 @@ const route = useRoute()
 const count = ref(1)
 const size = ref('Regular')
 const isOpen = ref(false);
+const id = ref(route.params.id)
 const setOpen = (open) => (isOpen.value = open);
 
 const addons = [
@@ -161,11 +169,8 @@ const popularList = [
   },
 ]
 
-
-const id = route.params.id || 1
-
 const item = computed(() => {
-  return popularList[0]
+  return popularList.find((v) => v.id === id || 1)
 })
 
 </script>
@@ -193,46 +198,48 @@ const item = computed(() => {
 }
 
 ion-toolbar {
-    --background: white;
+  --background: white;
 
-    --border-color: transparent;
-    --border-width: 0 0;
+  --border-color: transparent;
+  --border-width: 0 0;
 
-    --min-height: 80px;
-    --padding-top: 20px;
-    --padding-bottom: 20px;
-  }
-  .profile {
+  --min-height: 80px;
+  --padding-top: 20px;
+  --padding-bottom: 20px;
+}
+
+.profile {
   width: 40px;
   height: 40px;
 }
 
-.vouchers{
+.vouchers {
   width: calc(100vw - 24px);
   height: 100px;
   display: flex;
   overflow-y: scroll;
+
   &::-webkit-scrollbar {
     display: none;
   }
 }
 
-.categories{
+.categories {
   width: calc(100vw - 24px);
   height: 250px;
   display: flex;
   overflow-y: scroll;
+
   &::-webkit-scrollbar {
     display: none;
   }
 }
 
-.float{
-	position:fixed;
-	bottom:0;
-	right:0;
+.float {
+  position: fixed;
+  bottom: 0;
+  right: 0;
   padding: 20px;
   z-index: 1;
   width: 100%;
-}
-</style>
+}</style>

@@ -10,11 +10,14 @@
         <ion-grid class="ion-no-padding">
           <ion-row class="ion-no-padding">
             <ion-col class="ion-no-padding">
-              <ion-button size="small" expand="block" fill="clear" color="dark" style="font-weight: 600;" @click="() => $router.push(`/user/${user.id}/points`)" >
-                <img style="scale: 1.4; margin-right: 16px;" alt="Profile" src="../theme/assets/svg/crown.svg" />{{user.points}} Points <img style="padding-left: 12px;" alt="Profile" src="../theme/assets/svg/arrow-right.svg" />
+              <ion-button size="small" expand="block" fill="clear" color="dark" style="font-weight: 600;"
+                @click="() => $router.push(`/user/${user.id}/points`)">
+                <img style="scale: 1.4; margin-right: 16px;" alt="Profile"
+                  src="../theme/assets/svg/crown.svg" />{{ user.points }} Points <img style="padding-left: 12px;"
+                  alt="Profile" src="../theme/assets/svg/arrow-right.svg" />
               </ion-button>
             </ion-col>
-            <ion-col size="2" class="ion-no-padding">              
+            <ion-col size="2" class="ion-no-padding">
               <ion-avatar class="profile">
                 <img alt="Profile" :src="`../public/profilePictures/${user.id}.jpg`" />
               </ion-avatar>
@@ -63,7 +66,8 @@
           </ion-row>
         </ion-grid>
         <div class="vouchers">
-          <img v-for=" voucher in vouchers" alt="voucher" :src="`../../public/vouchers/${voucher.id}.png`" :key="voucher.id"/>
+          <img v-for=" voucher in vouchers" alt="voucher" :src="`../../public/vouchers/${voucher.id}.png`"
+            :key="voucher.id" />
         </div>
 
         <ion-grid>
@@ -74,7 +78,9 @@
           </ion-row>
         </ion-grid>
         <div class="categories">
-          <div v-for=" category in categories" :style="`position: relative; padding: 12px; height: 250px; width: 200px; border-radius: 20px; margin-left: 6px;  background-image: url('../../public/categories/${category.id}.png')`" alt="voucher" :src="`../../public/categories/${category.id}.png`" :key="category.id">
+          <div v-for=" category in categories"
+            :style="`position: relative; padding: 12px; height: 250px; width: 200px; border-radius: 20px; margin-left: 6px;  background-image: url('../../public/categories/${category.id}.png')`"
+            alt="voucher" :src="`../../public/categories/${category.id}.png`" :key="category.id">
             <div style="width: 200px; margin-top: auto;"></div>
             <div style="position: absolute; bottom: 12px;">
               <ion-grid>
@@ -100,7 +106,7 @@
             </ion-col>
           </ion-row>
         </ion-grid>
-        <img style="width: 100%;" alt="voucher" :src="`../../public/new/1.png`"/>
+        <img style="width: 100%;" alt="voucher" :src="`../../public/new/1.png`" />
 
         <ion-grid>
           <ion-row>
@@ -113,9 +119,11 @@
           <ion-row class="ion-no-padding">
             <ion-col v-for="popular in popularList" size="6">
               <ion-nav-link router-direction="forward" :component="preview"></ion-nav-link>
-              <ion-card color="light" style="box-shadow: none !important;" @click="() => $router.push(`/items/${popular.id}`)">
+              <ion-card color="light" style="box-shadow: none !important;"
+                @click="() => $router.push(`/items/${popular.id}`)">
                 <ion-card-content>
-                  <img style="border-radius: 10px; width: calc(50vw); height: calc(30vw);" :src="`../../public/items/${popular.id}.png`">
+                  <img style="border-radius: 10px; width: calc(50vw); height: calc(30vw);"
+                    :src="`../../public/items/${popular.id}.png`">
                   <h3 style="font-weight: 600; height: 40px;">{{ popular.name }}</h3>
                   <p>{{ popular.category }}</p>
                   <ion-row class="ion-no-padding">
@@ -133,7 +141,7 @@
         </ion-grid>
       </div>
       <div class="float">
-        <ion-button style="font-weight: 600;" @click="() => $router.push(`/items`)" >Order Now</ion-button>
+        <ion-button style="font-weight: 600;" @click="() => $router.push(`/items`)">Order Now</ion-button>
       </div>
     </ion-content>
   </ion-page>
@@ -207,21 +215,21 @@ const popularList = [
 
 const user = {
   id: 1,
-  name:'Dan',
+  name: 'Dan',
   mobileNumber: '+639851712329',
   points: 100,
   tier: 'Beginner',
 
   notifications: [
     {
-        id:1,
-        message: 'Payment successful'
-      },  
+      id: 1,
+      message: 'Payment successful'
+    },
     {
-        id:2,
-        message: 'Your order was successfully placed'
-      }
-    ],
+      id: 2,
+      message: 'Your order was successfully placed'
+    }
+  ],
 
   orders: [
     {
@@ -230,9 +238,9 @@ const user = {
       description: '1pc chicken with rice'
     }
   ],
-  rewards:{
-  all:{
-      data:[
+  rewards: {
+    all: {
+      data: [
         {
           id: 1,
           name: 'Steak Fries Vegies',
@@ -241,14 +249,14 @@ const user = {
         }
       ]
     },
-    beginer:{
-      data:[]
+    beginer: {
+      data: []
     },
-    intermediate:{
-      data:[]
+    intermediate: {
+      data: []
     },
-    loyal:{
-      data:[]
+    loyal: {
+      data: []
     }
   }
 }
@@ -277,43 +285,45 @@ const user = {
 }
 
 ion-toolbar {
-    --background: white;
+  --background: white;
 
-    --border-color: transparent;
-    --border-width: 0 0;
+  --border-color: transparent;
+  --border-width: 0 0;
 
-    --min-height: 80px;
-    --padding-top: 20px;
-    --padding-bottom: 20px;
-  }
-  .profile {
+  --min-height: 80px;
+  --padding-top: 20px;
+  --padding-bottom: 20px;
+}
+
+.profile {
   width: 40px;
   height: 40px;
 }
 
-.vouchers{
+.vouchers {
   width: calc(100vw - 24px);
   height: 100px;
   display: flex;
   overflow-y: scroll;
+
   &::-webkit-scrollbar {
     display: none;
   }
 }
 
-.categories{
+.categories {
   width: calc(100vw - 24px);
   height: 250px;
   display: flex;
   overflow-y: scroll;
+
   &::-webkit-scrollbar {
     display: none;
   }
 }
 
-.float{
-	position:fixed;
-	bottom:20px;
-	right:20px;
-}
-</style>
+.float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}</style>

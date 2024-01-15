@@ -12,7 +12,7 @@
             <ion-col class="ion-no-padding">
               <ion-title style="font-size: 26px;">Food</ion-title>
             </ion-col>
-            <ion-col size="2" class="ion-no-padding">              
+            <ion-col size="2" class="ion-no-padding">
               <ion-avatar class="profile">
                 <img alt="Profile" src="../theme/assets/svg/shopping-bag.svg" />
               </ion-avatar>
@@ -41,16 +41,20 @@
         <ion-grid style="padding-top: 24px;">
           <ion-row class="ion-no-padding">
             <ion-col class="ion-no-padding" size="3">
-              <ion-button size="medium" expand="block" :color="selected === 'all' ? 'primary':'light'" @click="selected = 'all'">All</ion-button>
+              <ion-button size="medium" expand="block" :color="selected === 'all' ? 'primary' : 'light'"
+                @click="selected = 'all'">All</ion-button>
             </ion-col>
             <ion-col class="ion-no-padding" size="3">
-              <ion-button size="medium" expand="block" :color="selected === 'Meat' ? 'primary':'light'" @click="selected = 'Meat'">Meat</ion-button>
+              <ion-button size="medium" expand="block" :color="selected === 'Meat' ? 'primary' : 'light'"
+                @click="selected = 'Meat'">Meat</ion-button>
             </ion-col>
             <ion-col class="ion-no-padding" size="3">
-              <ion-button size="medium" expand="block" :color="selected === 'Chicken' ? 'primary':'light'" @click="selected = 'Chicken'">Chicken</ion-button>
+              <ion-button size="medium" expand="block" :color="selected === 'Chicken' ? 'primary' : 'light'"
+                @click="selected = 'Chicken'">Chicken</ion-button>
             </ion-col>
             <ion-col class="ion-no-padding" size="3">
-              <ion-button size="medium" expand="block" :color="selected === 'Seafood' ? 'primary':'light'" @click="selected = 'Seafood'">Seafood</ion-button>
+              <ion-button size="medium" expand="block" :color="selected === 'Seafood' ? 'primary' : 'light'"
+                @click="selected = 'Seafood'">Seafood</ion-button>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -58,9 +62,11 @@
           <ion-row class="ion-no-padding">
             <ion-col v-for="popular in popularList" size="6">
               <ion-nav-link router-direction="forward" :component="preview"></ion-nav-link>
-              <ion-card color="light" style="box-shadow: none !important;" @click="() => $router.push(`/items/${popular.id}`)">
+              <ion-card color="light" style="box-shadow: none !important;"
+                @click="() => $router.push(`/items/${popular.id}`)">
                 <ion-card-content>
-                  <img style="border-radius: 10px; width: calc(50vw); height: calc(30vw);" :src="`../../public/items/${popular.id}.png`">
+                  <img style="border-radius: 10px; width: calc(50vw); height: calc(30vw);"
+                    :src="`../../public/items/${popular.id}.png`">
                   <h3 style="font-weight: 600; height: 40px;">{{ popular.name }}</h3>
                   <p>{{ popular.category }}</p>
                   <ion-row class="ion-no-padding">
@@ -150,21 +156,21 @@ const popularList = [
 
 const user = {
   id: 1,
-  name:'Dan',
+  name: 'Dan',
   mobileNumber: '+639851712329',
   points: 100,
   tier: 'Beginner',
 
   notifications: [
     {
-        id:1,
-        message: 'Payment successful'
-      },  
+      id: 1,
+      message: 'Payment successful'
+    },
     {
-        id:2,
-        message: 'Your order was successfully placed'
-      }
-    ],
+      id: 2,
+      message: 'Your order was successfully placed'
+    }
+  ],
 
   orders: [
     {
@@ -173,9 +179,9 @@ const user = {
       description: '1pc chicken with rice'
     }
   ],
-  rewards:{
-  all:{
-      data:[
+  rewards: {
+    all: {
+      data: [
         {
           id: 1,
           name: 'Steak Fries Vegies',
@@ -184,65 +190,18 @@ const user = {
         }
       ]
     },
-    beginer:{
-      data:[]
+    beginer: {
+      data: []
     },
-    intermediate:{
-      data:[]
+    intermediate: {
+      data: []
     },
-    loyal:{
-      data:[]
+    loyal: {
+      data: []
     }
   }
 }
 
-const options = {
-          chart: {
-          type: 'donut',
-        },
-        legend: {
-          show: false,
-        },
-        colors: ['#F7D1D3', '#D71921'],
-        stroke: {
-          show: false,
-        },
-        dataLabels: {
-          enabled: false,
-        },
-        plotOptions: {
-          pie: {
-            donut: {
-              background: 'transparent',
-              labels: {
-                show: true,
-                name: {
-                  show: false,
-                },
-                total: {
-                  show: true,
-                  fontFamily: 'Segoe UI',
-                  fontSize: '16px',
-                  label: '',
-                  fontWeight: 400,
-                  formatter: function (w) {
-                    return w.globals.seriesTotals.reduce((a, b) => {
-                      return `${b}/${160}`
-                    })
-                  },
-                },
-                value: {
-                  fontSize: '16px',
-                  color: '#000',
-                  fontWeight: 400,
-                  offsetY: 5,
-                },
-              },
-            },
-          },
-        },
-      }
-const series = [(160 - user.points),user.points]
 </script>
 
 <style scoped>
@@ -268,37 +227,39 @@ const series = [(160 - user.points),user.points]
 }
 
 ion-toolbar {
-    --background: white;
+  --background: white;
 
-    --border-color: transparent;
-    --border-width: 0 0;
+  --border-color: transparent;
+  --border-width: 0 0;
 
-    --min-height: 80px;
-    --padding-top: 20px;
-    --padding-bottom: 20px;
-  }
-  .profile {
+  --min-height: 80px;
+  --padding-top: 20px;
+  --padding-bottom: 20px;
+}
+
+.profile {
   width: 40px;
   height: 40px;
 }
 
-.vouchers{
+.vouchers {
   width: calc(100vw - 24px);
   height: 100px;
   display: flex;
   overflow-y: scroll;
+
   &::-webkit-scrollbar {
     display: none;
   }
 }
 
-.categories{
+.categories {
   width: calc(100vw - 24px);
   height: 250px;
   display: flex;
   overflow-y: scroll;
+
   &::-webkit-scrollbar {
     display: none;
   }
-}
-</style>
+}</style>

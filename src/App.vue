@@ -12,9 +12,12 @@
                   </ion-avatar>
                 </ion-col>
                 <ion-col>
-                  <ion-menu-toggle>   
-                    <ion-button expand="block" fill="clear" color="dark" style="font-weight: 600;" @click="() => {$router.push(`/user/${user.id}/points`), selectedIndex = null}" >
-                      <img style="scale: 1.4; margin-right: 16px;" alt="Profile" src="./theme/assets/svg/crown.svg" />{{user.points}} Points <img style="padding-left: 12px;" alt="Profile" src="./theme/assets/svg/arrow-right.svg" />
+                  <ion-menu-toggle>
+                    <ion-button expand="block" fill="clear" color="dark" style="font-weight: 600;"
+                      @click="() => { $router.push(`/user/${user.id}/points`), selectedIndex = null }">
+                      <img style="scale: 1.4; margin-right: 16px;" alt="Profile"
+                        src="./theme/assets/svg/crown.svg" />{{ user.points }} Points <img style="padding-left: 12px;"
+                        alt="Profile" src="./theme/assets/svg/arrow-right.svg" />
                     </ion-button>
                   </ion-menu-toggle>
                 </ion-col>
@@ -23,18 +26,24 @@
             <ion-list-header>{{ user.name }}</ion-list-header>
             <ion-note style="font-weight: 300;">{{ user.mobileNumber }}</ion-note>
             <ion-menu-toggle :auto-hide="false" v-for="(p, i) in appPages" :key="i">
-              <ion-item @click="selectedIndex = i" router-direction="root" :router-link="p.url" lines="none" :detail="false" class="hydrated" :class="{ selected: selectedIndex === i }">
-                <ion-icon :style="selectedIndex === i ? 'color: #D71921; scale:0.8;': 'color: #B2B5B8; scale:0.8;'" aria-hidden="true" slot="start" :ios="p.iosIcon" :md="p.mdIcon"></ion-icon>
+              <ion-item @click="selectedIndex = i" router-direction="root" :router-link="p.url" lines="none"
+                :detail="false" class="hydrated" :class="{ selected: selectedIndex === i }">
+                <ion-icon :style="selectedIndex === i ? 'color: #D71921; scale:0.8;' : 'color: #B2B5B8; scale:0.8;'"
+                  aria-hidden="true" slot="start" :ios="p.iosIcon" :md="p.mdIcon"></ion-icon>
                 <ion-label style="font-weight: 600;" color="dark">{{ p.title }}</ion-label>
-                <ion-badge v-if="p.title === 'Notifications'" color="warning" style="color: white;">{{ user.notifications?.length }}</ion-badge>
+                <ion-badge v-if="p.title === 'Notifications'" color="warning" style="color: white;">{{
+                  user.notifications?.length }}</ion-badge>
               </ion-item>
             </ion-menu-toggle>
-            <div style="height: 1px; background-color: #B2B5B8; margin: 12px;"/>
+            <div style="height: 1px; background-color: #B2B5B8; margin: 12px;" />
             <ion-menu-toggle :auto-hide="false" v-for="(p, i) in appPagesOther" :key="i">
-              <ion-item @click="selectedIndex = i + 5" router-direction="root" :router-link="p.url" lines="none" :detail="false" class="hydrated" :class="{ selected: selectedIndex === i + 5 }">
-                <ion-icon style="color: #B2B5B8; scale:0.8;" aria-hidden="true" slot="start" :ios="p.iosIcon" :md="p.mdIcon"></ion-icon>
+              <ion-item @click="selectedIndex = i + 5" router-direction="root" :router-link="p.url" lines="none"
+                :detail="false" class="hydrated" :class="{ selected: selectedIndex === i + 5 }">
+                <ion-icon style="color: #B2B5B8; scale:0.8;" aria-hidden="true" slot="start" :ios="p.iosIcon"
+                  :md="p.mdIcon"></ion-icon>
                 <ion-label style="font-weight: 600;" color="dark">{{ p.title }}</ion-label>
-                <ion-badge v-if="p.title === 'My Orders'" color="warning" style="color: white;">{{ user.orders?.length }}</ion-badge>
+                <ion-badge v-if="p.title === 'My Orders'" color="warning" style="color: white;">{{ user.orders?.length
+                }}</ion-badge>
               </ion-item>
             </ion-menu-toggle>
             <ion-button expand="block" style="margin: 18px;">Logout</ion-button>
@@ -144,20 +153,20 @@ const appPagesOther = [
 
 const user = {
   id: 1,
-  name:'Dan Ibañez',
+  name: 'Dan Ibañez',
   mobileNumber: '+639851712329',
   points: 100,
   tier: 'Beginner',
   notifications: [
     {
-        id:1,
-        message: 'Payment successful'
-      },  
+      id: 1,
+      message: 'Payment successful'
+    },
     {
-        id:2,
-        message: 'Your order was successfully placed'
-      }
-    ],
+      id: 2,
+      message: 'Your order was successfully placed'
+    }
+  ],
   orders: [
     {
       id: 1,
@@ -298,5 +307,4 @@ ion-item.selected {
   width: 72px;
   height: 72px;
   margin-left: 18px;
-}
-</style>
+}</style>

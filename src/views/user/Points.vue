@@ -32,12 +32,7 @@
         </ion-grid>
         <p>Earn points by purchasing from our store. The more points you earn, the higher your tier!</p>
         <div style="margin: 30px 50px;">
-          <apexchart
-            width="100%"
-            type="donut"
-            :options="options"
-            :series="series"
-          ></apexchart>
+          <apexchart width="100%" type="donut" :options="options" :series="series"></apexchart>
         </div>
         <ion-grid>
           <ion-row>
@@ -47,7 +42,8 @@
             <ion-col>
               <div className="ion-float-end">
                 <ion-button size="small" fill="clear" color="#D71921" style="font-weight: 600; margin-top: 18px;">
-                  How it works <img style="padding-left: 12px;" alt="Profile" src="../../theme/assets/svg/arrow-right.svg" />
+                  How it works <img style="padding-left: 12px;" alt="Profile"
+                    src="../../theme/assets/svg/arrow-right.svg" />
                 </ion-button>
               </div>
             </ion-col>
@@ -56,16 +52,20 @@
         <ion-grid class="ion-no-padding">
           <ion-row class="ion-no-padding">
             <ion-col class="ion-no-padding" size="2">
-              <ion-button size="medium" expand="block" :color="selected === 'all' ? 'primary':'light'" @click="selected = 'all'">All</ion-button>
+              <ion-button size="medium" expand="block" :color="selected === 'all' ? 'primary' : 'light'"
+                @click="selected = 'all'">All</ion-button>
             </ion-col>
             <ion-col class="ion-no-padding" size="4">
-              <ion-button size="medium" expand="block" :color="selected === 'beginner' ? 'primary':'light'" @click="selected = 'beginner'">Beginner</ion-button>
+              <ion-button size="medium" expand="block" :color="selected === 'beginner' ? 'primary' : 'light'"
+                @click="selected = 'beginner'">Beginner</ion-button>
             </ion-col>
             <ion-col class="ion-no-padding" size="4">
-              <ion-button size="medium" expand="block" :color="selected === 'intermediate' ? 'primary':'light'" @click="selected = 'intermediate'">Intermediate</ion-button>
+              <ion-button size="medium" expand="block" :color="selected === 'intermediate' ? 'primary' : 'light'"
+                @click="selected = 'intermediate'">Intermediate</ion-button>
             </ion-col>
             <ion-col class="ion-no-padding" size="2">
-              <ion-button size="medium" expand="block" :color="selected === 'loyal' ? 'primary':'light'" @click="selected = 'loyal'">Loyal</ion-button>
+              <ion-button size="medium" expand="block" :color="selected === 'loyal' ? 'primary' : 'light'"
+                @click="selected = 'loyal'">Loyal</ion-button>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -84,7 +84,9 @@
                     {{ row.category }}
                   </ion-row>
                   <ion-row>
-                    <img style="scale: 1; margin-right: 12px;" alt="Profile" src="../../theme//assets/svg/crown.svg" /><ion-label color="primary"><b>{{ `${row.points} points` }}</b></ion-label>
+                    <img style="scale: 1; margin-right: 12px;" alt="Profile"
+                      src="../../theme//assets/svg/crown.svg" /><ion-label color="primary"><b>{{ `${row.points} points`
+                      }}</b></ion-label>
                   </ion-row>
                 </ion-col>
               </ion-row>
@@ -97,7 +99,7 @@
           <ion-title size="large">{{ $route.params.id }}</ion-title>
         </ion-toolbar>
       </ion-header> -->
-<!-- 
+      <!-- 
       <div id="container">
         <strong class="capitalize">{{ $route.params.id }}</strong>
         <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components ddfgsdfg</a></p>
@@ -112,21 +114,21 @@ import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, Io
 let selected = ref('all');
 const user = {
   id: 1,
-  name:'Dan Ibañez',
+  name: 'Dan Ibañez',
   mobileNumber: '+639851712329',
   points: 100,
   tier: 'Beginner',
 
   notifications: [
     {
-        id:1,
-        message: 'Payment successful'
-      },  
+      id: 1,
+      message: 'Payment successful'
+    },
     {
-        id:2,
-        message: 'Your order was successfully placed'
-      }
-    ],
+      id: 2,
+      message: 'Your order was successfully placed'
+    }
+  ],
 
   orders: [
     {
@@ -135,9 +137,9 @@ const user = {
       description: '1pc chicken with rice'
     }
   ],
-  rewards:{
-  all:{
-      data:[
+  rewards: {
+    all: {
+      data: [
         {
           id: 1,
           name: 'Steak Fries Vegies',
@@ -146,65 +148,65 @@ const user = {
         }
       ]
     },
-    beginer:{
-      data:[]
+    beginer: {
+      data: []
     },
-    intermediate:{
-      data:[]
+    intermediate: {
+      data: []
     },
-    loyal:{
-      data:[]
+    loyal: {
+      data: []
     }
   }
 }
 
 const options = {
-          chart: {
-          type: 'donut',
-        },
-        legend: {
-          show: false,
-        },
-        colors: ['#F7D1D3', '#D71921'],
-        stroke: {
-          show: false,
-        },
-        dataLabels: {
-          enabled: false,
-        },
-        plotOptions: {
-          pie: {
-            donut: {
-              background: 'transparent',
-              labels: {
-                show: true,
-                name: {
-                  show: false,
-                },
-                total: {
-                  show: true,
-                  fontFamily: 'Segoe UI',
-                  fontSize: '16px',
-                  label: '',
-                  fontWeight: 400,
-                  formatter: function (w) {
-                    return w.globals.seriesTotals.reduce((a, b) => {
-                      return `${b}/${160}`
-                    })
-                  },
-                },
-                value: {
-                  fontSize: '16px',
-                  color: '#000',
-                  fontWeight: 400,
-                  offsetY: 5,
-                },
-              },
+  chart: {
+    type: 'donut',
+  },
+  legend: {
+    show: false,
+  },
+  colors: ['#F7D1D3', '#D71921'],
+  stroke: {
+    show: false,
+  },
+  dataLabels: {
+    enabled: false,
+  },
+  plotOptions: {
+    pie: {
+      donut: {
+        background: 'transparent',
+        labels: {
+          show: true,
+          name: {
+            show: false,
+          },
+          total: {
+            show: true,
+            fontFamily: 'Segoe UI',
+            fontSize: '16px',
+            label: '',
+            fontWeight: 400,
+            formatter: function (w) {
+              return w.globals.seriesTotals.reduce((a, b) => {
+                return `${b}/${160}`
+              })
             },
           },
+          value: {
+            fontSize: '16px',
+            color: '#000',
+            fontWeight: 400,
+            offsetY: 5,
+          },
         },
-      }
-const series = [(160 - user.points),user.points]
+      },
+    },
+  },
+}
+const series = [(160 - user.points), user.points]
 </script>
 
 <style scoped>
@@ -229,13 +231,13 @@ const series = [(160 - user.points),user.points]
 }
 
 ion-toolbar {
-    --background: white;
+  --background: white;
 
-    --border-color: transparent;
-    --border-width: 0 0;
+  --border-color: transparent;
+  --border-width: 0 0;
 
-    --min-height: 80px;
-    --padding-top: 20px;
-    --padding-bottom: 20px;
-  }
+  --min-height: 80px;
+  --padding-top: 20px;
+  --padding-bottom: 20px;
+}
 </style>
