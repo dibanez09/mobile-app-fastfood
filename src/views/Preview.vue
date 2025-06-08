@@ -37,7 +37,7 @@
             </ion-col>
             <ion-col>
               <div className="ion-float-end">
-                <ion-button size="medium" color="light" @click="() => count -= 1">-</ion-button> <span
+                <ion-button :disabled="count <=0" size="medium" color="light" @click="() => count -= 1">-</ion-button> <span
                   style="margin: 12px;"><b>{{ count }}</b></span><ion-button size="medium" color="light"
                   @click="() => count += 1">+</ion-button>
               </div>
@@ -90,7 +90,7 @@
                       </ion-col>
                       <ion-col size="8">
                         <div className="ion-float-end" style="display: flex; margin-left: 100px;">
-                          <ion-button size="small" color="primary">-</ion-button> <span style="margin: 1px;"><b>{{ 1
+                          <ion-button size="small" color="primary">-</ion-button> <span style="margin: 10px;"><b>{{ 0
                           }}</b></span><ion-button size="small" color="primary">+</ion-button>
                         </div>
                       </ion-col>
