@@ -1,5 +1,7 @@
 # Fastfood App
 
+## Note: No Backend yet! Mocking data only!
+
 on project root directory
 
 ## Install dependencies
@@ -12,6 +14,5 @@ $npm install
 ## Start Service
 
 ```bash
-$ionic serve
+$npx ionic serve
 ```
-
